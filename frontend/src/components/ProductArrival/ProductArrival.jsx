@@ -1,20 +1,42 @@
+
+import { useEffect, useRef, useState } from 'react';
 import './ProductArrival.css';
 
 const ProductArrival = () => {
+  const layoutRef = useRef(null);
+  const footerRef = useRef(null);
+  const [layoutVisible, setLayoutVisible] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
+
+  useEffect(() => {
+    const layoutObserver = new IntersectionObserver(
+      ([entry]) => setLayoutVisible(entry.isIntersecting),
+      { threshold: 0.05, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    const footerObserver = new IntersectionObserver(
+      ([entry]) => setFooterVisible(entry.isIntersecting),
+      { threshold: 0.05, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    if (layoutRef.current) layoutObserver.observe(layoutRef.current);
+    if (footerRef.current) footerObserver.observe(footerRef.current);
+
+    return () => {
+      layoutObserver.disconnect();
+      footerObserver.disconnect();
+    };
+  }, []);
+
   return (
     <section className="arrival-section-container">
-      {/* Top Section Tag Identifier */}
       <div className="arrival-tag-row">
         <span className="red-vertical-pill"></span>
         <span className="tag-label-text">Featured</span>
       </div>
       <h2 className="arrival-main-heading">New Arrival</h2>
-
-      {/* Complex Bento Grid Block Component */}
-      <div className="bento-grid-layout">
-        
-        {/* Left Core Highlight Tile: PlayStation 5 */}
-        <div className="bento-tile tile-large-ps5">
+      <div className="bento-grid-layout" ref={layoutRef}>
+                <div className={`bento-tile tile-large-ps5 ${layoutVisible ? 'animate-in' : ''}`} style={{ '--item-index': 0 }}>
           <img src="/playstation.webp" alt="PlayStation 5 Console" className="tile-bg-image img-ps5" />
           <div className="tile-content-overlay">
             <h3 className="tile-title">PlayStation 5</h3>
@@ -22,12 +44,8 @@ const ProductArrival = () => {
             <a href="#shop" className="tile-shop-link">Shop Now</a>
           </div>
         </div>
-
-        {/* Right Dynamic Layout Column Group */}
         <div className="bento-column-group">
-          
-          {/* Top Wide Banner: Women's Collections */}
-          <div className="bento-tile tile-wide-women">
+                    <div className={`bento-tile tile-wide-women ${layoutVisible ? 'animate-in' : ''}`} style={{ '--item-index': 1 }}>
             <img src="/women.webp" alt="Women's Collection" className="tile-bg-image img-women" />
             <div className="tile-content-overlay">
               <h3 className="tile-title">Women's Collections</h3>
@@ -35,12 +53,8 @@ const ProductArrival = () => {
               <a href="#shop" className="tile-shop-link">Shop Now</a>
             </div>
           </div>
-
-          {/* Bottom Split Row Elements */}
           <div className="bento-split-row">
-            
-            {/* Left Box: Speakers */}
-            <div className="bento-tile tile-square-item">
+                        <div className={`bento-tile tile-square-item ${layoutVisible ? 'animate-in' : ''}`} style={{ '--item-index': 2 }}>
               <div className="tile-radial-glow"></div>
               <img src="/speaker.webp" alt="Amazon Wireless Speakers" className="tile-bg-image img-speaker" />
               <div className="tile-content-overlay">
@@ -49,9 +63,7 @@ const ProductArrival = () => {
                 <a href="#shop" className="tile-shop-link">Shop Now</a>
               </div>
             </div>
-
-            {/* Right Box: Perfume */}
-            <div className="bento-tile tile-square-item">
+            <div className={`bento-tile tile-square-item ${layoutVisible ? 'animate-in' : ''}`} style={{ '--item-index': 3 }}>
               <div className="tile-radial-glow"></div>
               <img src="/perfume.webp" alt="GUCCI INTENSE OUD EDP" className="tile-bg-image img-perfume" />
               <div className="tile-content-overlay">
@@ -65,12 +77,8 @@ const ProductArrival = () => {
         </div>
 
       </div>
-
-      {/* Bottom Features Accent Row Panels */}
-      <div className="features-footer-row">
-        
-        {/* Feature Node 1 */}
-        <div className="feature-card-block">
+      <div className="features-footer-row" ref={footerRef}>
+                <div className={`feature-card-block ${footerVisible ? 'animate-in' : ''}`} style={{ '--item-index': 0 }}>
           <div className="icon-outer-ring">
             <div className="icon-inner-core">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -85,8 +93,7 @@ const ProductArrival = () => {
           <p className="feature-block-text">Free delivery for all orders over $140</p>
         </div>
 
-        {/* Feature Node 2 */}
-        <div className="feature-card-block">
+        <div className={`feature-card-block ${footerVisible ? 'animate-in' : ''}`} style={{ '--item-index': 1 }}>
           <div className="icon-outer-ring">
             <div className="icon-inner-core">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -98,8 +105,7 @@ const ProductArrival = () => {
           <p className="feature-block-text">Friendly 24/7 customer support</p>
         </div>
 
-        {/* Feature Node 3 */}
-        <div className="feature-card-block">
+        <div className={`feature-card-block ${footerVisible ? 'animate-in' : ''}`} style={{ '--item-index': 2 }}>
           <div className="icon-outer-ring">
             <div className="icon-inner-core">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
