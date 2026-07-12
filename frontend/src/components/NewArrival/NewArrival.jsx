@@ -1,4 +1,5 @@
-import { useRef } from 'react';
+
+import { useEffect, useRef, useState } from 'react';
 import './NewArrival.css';
 
 const BEST_SELLERS = [
@@ -51,14 +52,31 @@ const BEST_SELLERS = [
 
 const NewArrival = () => {
   const scrollContainerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-  // Smooth cyclic scroll navigation for items when clicking the main tracking button
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { 
+        threshold: 0.05, 
+        rootMargin: '0px 0px -40px 0px' 
+      }
+    );
+
+    if (scrollContainerRef.current) {
+      observer.observe(scrollContainerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const handleNextScroll = () => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
       const maxScroll = container.scrollWidth - container.clientWidth;
       
-      // If reached the end, snap back smoothly to start, else move forward
       if (container.scrollLeft >= maxScroll - 5) {
         container.scrollTo({ left: 0, behavior: 'smooth' });
       } else {
@@ -88,13 +106,11 @@ const NewArrival = () => {
 
   return (
     <section className="best-selling-section">
-      {/* Top Categorization Tag */}
       <div className="section-tag-row">
         <div className="red-accent-badge"></div>
         <span className="tag-label-text">This Month</span>
       </div>
 
-      {/* Title Header Layout Bar */}
       <div className="section-header-main">
         <h2 className="section-title-text">Best Selling Products</h2>
         <button className="view-all-accent-btn" onClick={handleNextScroll}>
@@ -102,11 +118,13 @@ const NewArrival = () => {
         </button>
       </div>
 
-      {/* Horizontally Scrollable Product Slider Track */}
       <div className="products-slider-track" ref={scrollContainerRef}>
-        {BEST_SELLERS.map((product) => (
-          <div className="seller-product-card" key={product.id}>
-            {/* Top Thumbnail Box */}
+        {BEST_SELLERS.map((product, index) => (
+          <div 
+            className={`seller-product-card ${isVisible ? 'animate-in' : ''}`} 
+            key={product.id}
+            style={{ '--card-index': index }}
+          >
             <div className="product-media-wrapper">
               <div className="product-action-stack">
                 <button className="circle-utility-btn" aria-label="Add to Wishlist">
@@ -124,7 +142,6 @@ const NewArrival = () => {
               <img src={product.image} alt={product.name} className="seller-card-img" />
             </div>
 
-            {/* Bottom Content Metadata */}
             <div className="seller-meta-box">
               <h3 className="seller-title-name">{product.name}</h3>
               <div className="seller-price-row">
