@@ -13,7 +13,6 @@
   background-color: #ffffff;
 }
 
-/* --- Section Top Tags --- */
 .section-tag-row {
   display: flex;
   align-items: center;
@@ -34,7 +33,6 @@
   font-size: 16px;
 }
 
-/* --- Navigation Header Alignment --- */
 .section-header-main {
   display: flex;
   justify-content: space-between;
@@ -66,7 +64,6 @@
   background-color: #c23333;
 }
 
-/* --- Smooth Responsive Flex Track Row --- */
 .products-slider-track {
   display: flex;
   flex-direction: row;
@@ -75,19 +72,32 @@
   scroll-behavior: smooth;
   padding-bottom: 12px;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Hide default bars on Firefox */
+  scrollbar-width: none; 
 }
 
 .products-slider-track::-webkit-scrollbar {
-  display: none; /* Hide default scrollbars on Chrome/Safari */
+  display: none; 
 }
-
-/* --- Flex Item Sizing Presets --- */
 .seller-product-card {
-  flex: 0 0 270px; /* Locked standard sizing matching structural desktop specs */
+  flex: 0 0 270px; 
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
+  opacity: 0;
+  transform: translateY(50px);
+  visibility: hidden;
+
+  transition: opacity 0.5s ease-out, 
+              transform 0.5s ease-out,
+              visibility 0.5s;
+}
+
+.seller-product-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  
+  transition-delay: calc(var(--card-index) * 120ms);
 }
 
 .product-media-wrapper {
@@ -113,7 +123,6 @@
   transform: scale(1.04);
 }
 
-/* --- Utility Floating Action Icons --- */
 .product-action-stack {
   position: absolute;
   top: 12px;
@@ -143,7 +152,6 @@
   color: #ffffff;
 }
 
-/* --- Bottom Card Metadata Blocks --- */
 .seller-meta-box {
   padding-top: 16px;
   display: flex;
@@ -193,7 +201,6 @@
   font-weight: 600;
 }
 
-/* --- Responsive Layout Breaks --- */
 @media (max-width: 768px) {
   .best-selling-section {
     padding: 30px 24px;
