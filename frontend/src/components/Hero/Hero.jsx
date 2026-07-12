@@ -1,13 +1,37 @@
+import { useEffect, useRef, useState } from 'react';
 import './Hero.css';
 
 const Hero = () => {
+  const headingRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { 
+        threshold: 0.05, 
+        rootMargin: '0px 0px -20px 0px' 
+      }
+    );
+
+    if (headingRef.current) {
+      observer.observe(headingRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const headingWords = ["Up", "to", "10%", "off", "Voucher"];
+
   return (
     <section className="hero-banner">
       <div className="hero-container">
-        {/* Left Side: Content */}
+   
         <div className="hero-content">
           <div className="hero-brand">
-            {/* Apple Icon using standard SVG */}
+   
             <svg 
               className="brand-logo"
               viewBox="0 0 170 170" 
@@ -20,8 +44,17 @@ const Hero = () => {
             <span className="brand-name">iPhone 14 Series</span>
           </div>
           
-          <h1 className="hero-title">
-            Up to 10%<br />off Voucher
+          <h1 ref={headingRef} className="hero-title">
+            {headingWords.map((word, idx) => (
+              <span 
+                key={idx} 
+                className={`blur-word ${isVisible ? 'clear-in' : ''}`}
+                style={{ '--word-index': idx }}
+              >
+                {word}
+                {word === "10%" && <br />}
+              </span>
+            ))}
           </h1>
           
           <a href="#shop" className="hero-link">
@@ -42,7 +75,6 @@ const Hero = () => {
           </a>
         </div>
 
-        {/* Right Side: Product Image Container */}
         <div className="hero-image-box">
           <img 
             src="/phone.webp" 
@@ -51,7 +83,6 @@ const Hero = () => {
           />
         </div>
 
-        {/* Slider Pagination Dots */}
         <div className="hero-pagination">
           <span className="dot"></span>
           <span className="dot"></span>
@@ -65,4 +96,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
