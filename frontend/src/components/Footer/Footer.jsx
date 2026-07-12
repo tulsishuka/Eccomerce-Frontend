@@ -4,9 +4,7 @@ const Footer = () => {
   return (
     <footer className="footer-section-container">
       <div className="footer-content-grid">
-        
-        {/* Column 1: Brand & Subscription */}
-        <div className="footer-col">
+                <div className="footer-col">
           <h2 className="footer-brand-title">Eco-Mart</h2>
           <h3 className="footer-section-title">Subscribe</h3>
           <p className="footer-text-muted">Get 10% off your first order</p>
@@ -24,8 +22,6 @@ const Footer = () => {
             </button>
           </div>
         </div>
-
-        {/* Column 2: Support */}
         <div className="footer-col">
           <h3 className="footer-section-title">Support</h3>
           <p className="footer-address-text">
@@ -40,7 +36,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Column 3: Account Links */}
         <div className="footer-col">
           <h3 className="footer-section-title">Account</h3>
           <ul className="footer-links-list">
@@ -52,7 +47,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Column 4: Quick Links */}
         <div className="footer-col">
           <h3 className="footer-section-title">Quick Link</h3>
           <ul className="footer-links-list">
@@ -63,12 +57,10 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Column 5: App Download */}
         <div className="footer-col">
           <h3 className="footer-section-title">Download App</h3>
           <p className="footer-app-tagline">Save $3 with App New User Only</p>
           
-          {/* QR and App Store Badge Matrix */}
           <div className="footer-download-matrix">
             <div className="qr-code-box">
               <img src="/qr.webp" alt="QR Code" className="qr-code-img" />
@@ -83,7 +75,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Social Icons Stack */}
           <div className="footer-social-row">
             <a href="#facebook" aria-label="Facebook" className="social-icon-link">
               <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
@@ -113,7 +104,6 @@ const Footer = () => {
 
       </div>
 
-      {/* Baseline Bottom Copyright Bar */}
       <div className="footer-baseline-bar">
         <p className="footer-copyright-text">
           &copy; Copyright test 2026. All right reserved

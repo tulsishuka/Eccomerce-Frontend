@@ -1,33 +1,10 @@
-/* ==========================================================================
-   Scroll & Page Load Animation Rules
-   ========================================================================== */
 
-.product-card {
-  flex: 0 0 270px;
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  
-  /* Initial state: Hidden slightly lower down */
-  opacity: 0;
-  transform: translateY(40px);
-  visibility: hidden;
-  transition: opacity 0.6s cubic-bezier(0.215, 0.610, 0.355, 1), 
-              transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1),
-              visibility 0.6s;
+.products-grid-container * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Trigger class activated by Intersection Observer */
-.product-card.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible;
-  
-  /* Staggers look-up by adding a 100ms offset calculation dynamically per card index */
-  transition-delay: calc(var(--card-index) * 100ms);
-}
-
-/* Rest of your existing layout and media queries remain unchanged below */
 .products-grid-container {
   width: 100%;
   max-width: 1280px;
@@ -45,11 +22,35 @@
   scroll-behavior: smooth;
   margin-bottom: 60px;
   padding-bottom: 10px;
-  scrollbar-width: none;
+  scrollbar-width: none; 
 }
 
 .products-grid-layout.slider-row-mode::-webkit-scrollbar {
-  display: none;
+  display: none; 
+}
+
+
+.product-card {
+  flex: 0 0 270px; 
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  
+  opacity: 0;
+  transform: translateY(50px);
+  visibility: hidden;
+  
+  transition: opacity 0.5s ease-out, 
+              transform 0.5s ease-out,
+              visibility 0.5s;
+}
+
+.product-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  
+  transition-delay: calc(var(--card-index) * 120ms);
 }
 
 .card-top-thumbnail {
@@ -200,7 +201,6 @@
     padding: 20px 16px;
   }
 }
-
 @media (max-width: 992px) {
   .products-grid-container {
     padding: 20px 24px 32px;

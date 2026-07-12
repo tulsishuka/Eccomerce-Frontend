@@ -1,4 +1,4 @@
-/* Container Box & Typography Reset Scope */
+
 .footer-section-container * {
   box-sizing: border-box;
   margin: 0;
@@ -7,20 +7,19 @@
 }
 
 .footer-section-container {
-  background-color: #000000;
-  color: #ffffff;
   width: 100%;
+  background: #000;
+  color: #fff;
   padding-top: 80px;
 }
 
-/* --- Layout Main Distribution Matrix Grid --- */
 .footer-content-grid {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 0 48px 60px;
   display: grid;
   grid-template-columns: 1.2fr 1.2fr 1fr 1fr 1.4fr;
   gap: 40px 30px;
-  padding: 0 48px 60px 48px;
 }
 
 .footer-col {
@@ -28,7 +27,6 @@
   flex-direction: column;
 }
 
-/* --- Content Element Headers & Typography --- */
 .footer-brand-title {
   font-size: 24px;
   font-weight: 700;
@@ -40,7 +38,6 @@
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 24px;
-  letter-spacing: 0.5px;
 }
 
 .footer-text-muted {
@@ -51,61 +48,64 @@
 
 .footer-address-text {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
   opacity: 0.9;
   margin-bottom: 16px;
 }
 
 .footer-contact-item {
-  font-size: 16px;
   margin-bottom: 16px;
+  font-size: 16px;
 }
 
 .footer-contact-item a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
-  opacity: 0.9;
-  transition: opacity 0.2s ease;
+  transition: 0.3s;
 }
 
 .footer-contact-item a:hover {
-  opacity: 1;
+  opacity: 0.8;
 }
 
-/* --- Left Column Custom Email Subscription Box --- */
+/* ============================
+   Subscribe Box
+============================ */
 .footer-email-input-wrapper {
   display: flex;
   align-items: center;
-  border: 1.5px solid #ffffff;
+  border: 1.5px solid #fff;
   border-radius: 4px;
   padding: 10px 16px;
+  width: 100%;
   max-width: 240px;
-  background: transparent;
 }
 
 .footer-email-input {
-  background: transparent;
+  flex: 1;
   border: none;
-  color: #ffffff;
-  font-size: 16px;
-  width: 100%;
+  background: transparent;
+  color: #fff;
   outline: none;
+  font-size: 16px;
 }
 
 .footer-email-input::placeholder {
-  color: #7d7d7d;
+  color: #8d8d8d;
 }
 
 .footer-email-submit {
-  background: transparent;
   border: none;
+  background: transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* --- Mid-Columns Links List Layout --- */
+/* ============================
+   Footer Links
+============================ */
 .footer-links-list {
   list-style: none;
   display: flex;
@@ -114,22 +114,23 @@
 }
 
 .footer-links-list a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   font-size: 16px;
   opacity: 0.9;
-  transition: opacity 0.2s ease;
+  transition: 0.3s;
 }
 
 .footer-links-list a:hover {
   opacity: 1;
 }
 
-/* --- Right Column App Download Configurations --- */
+/* ============================
+   Download Section
+============================ */
 .footer-app-tagline {
   font-size: 12px;
-  color: #7d7d7d;
-  font-weight: 500;
+  color: #8d8d8d;
   margin-bottom: 12px;
 }
 
@@ -143,11 +144,11 @@
 .qr-code-box {
   width: 80px;
   height: 80px;
-  background-color: #ffffff;
+  background: #fff;
   padding: 4px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .qr-code-img {
@@ -163,72 +164,215 @@
 }
 
 .store-badge-link {
-  display: inline-block;
+  display: block;
   height: 34px;
 }
 
 .store-badge-img {
   height: 100%;
   width: auto;
-  object-fit: contain;
+  display: block;
 }
 
-/* --- Social Icon Grid Settings --- */
 .footer-social-row {
   display: flex;
-  gap: 24px;
   align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 .social-icon-link {
-  color: #ffffff;
-  transition: opacity 0.2s ease;
+  color: #fff;
   display: flex;
-  align-items: center;
+  transition: 0.3s;
 }
 
 .social-icon-link:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
-/* --- Baseline Footer Strip Border Section --- */
+/* ============================
+   Bottom Bar
+============================ */
 .footer-baseline-bar {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 24px 0;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
 }
 
 .footer-copyright-text {
-  font-size: 16px;
-  color: #222222;
-  /* Set explicit, slightly light gray text color to mimic design screenshot text */
-  opacity: 0.4; 
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 15px;
+  text-align: center;
 }
 
-/* --- Smooth Responsive Interface Breakpoints --- */
-@media (max-width: 1024px) {
-  .footer-content-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    padding: 0 32px 60px 32px;
-  }
-}
+/* ==========================================
+   Responsive
+========================================== */
 
-@media (max-width: 600px) {
+/* Large Laptop */
+@media (max-width: 1200px) {
   .footer-content-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 32px 60px;
     gap: 40px;
-    padding: 0 24px 48px 24px;
   }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
 
   .footer-section-container {
     padding-top: 60px;
   }
 
+  .footer-content-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 28px 50px;
+    gap: 40px 32px;
+  }
+
+  .footer-brand-title {
+    font-size: 22px;
+  }
+
+  .footer-section-title {
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+
+  .footer-text-muted,
+  .footer-address-text,
+  .footer-contact-item,
+  .footer-links-list a,
+  .footer-email-input {
+    font-size: 15px;
+  }
+
   .footer-email-input-wrapper {
     max-width: 100%;
+  }
+
+  .qr-code-box {
+    width: 70px;
+    height: 70px;
+  }
+
+  .store-badge-link {
+    height: 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .footer-section-container {
+    padding-top: 50px;
+  }
+
+  .footer-content-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px 40px;
+    gap: 36px;
+  }
+
+  .footer-col {
+    align-items: flex-start;
+  }
+
+  .footer-brand-title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .footer-section-title {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .footer-text-muted,
+  .footer-address-text,
+  .footer-contact-item,
+  .footer-links-list a,
+  .footer-email-input {
+    font-size: 15px;
+  }
+
+  .footer-email-input-wrapper {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .footer-download-matrix {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .footer-social-row {
+    gap: 18px;
+  }
+
+  .footer-baseline-bar {
+    padding: 20px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+  .footer-content-grid {
+    padding: 0 16px 32px;
+    gap: 30px;
+  }
+
+  .footer-brand-title {
+    font-size: 22px;
+  }
+
+  .footer-section-title {
+    font-size: 17px;
+  }
+
+  .footer-text-muted,
+  .footer-address-text,
+  .footer-contact-item,
+  .footer-links-list a,
+  .footer-email-input {
+    font-size: 14px;
+  }
+
+  .footer-email-input-wrapper {
+    padding: 10px 14px;
+  }
+
+  .qr-code-box {
+    width: 64px;
+    height: 64px;
+  }
+
+  .store-badge-link {
+    height: 28px;
+  }
+
+  .store-badge-img {
+    width: auto;
+    height: 100%;
+  }
+
+  .footer-social-row {
+    gap: 16px;
+  }
+
+  .social-icon-link svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer-copyright-text {
+    font-size: 13px;
+    line-height: 1.6;
   }
 }

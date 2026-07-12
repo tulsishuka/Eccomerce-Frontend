@@ -1,4 +1,4 @@
-import  { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './ExploreProduct.css';
 
 const PRODUCTS = [
@@ -82,6 +82,25 @@ const PRODUCTS = [
 
 const ExploreProduct = () => {
   const gridContainerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { 
+        threshold: 0.05, 
+        rootMargin: '0px 0px -40px 0px' 
+      }
+    );
+
+    if (gridContainerRef.current) {
+      observer.observe(gridContainerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleScroll = (direction) => {
     if (gridContainerRef.current) {
@@ -111,13 +130,10 @@ const ExploreProduct = () => {
 
   return (
     <section className="explore-products-section">
-      {/* Category Accent Badge Row */}
       <div className="explore-tag-row">
         <div className="red-vertical-badge"></div>
         <span className="tag-label-text">Our Products</span>
       </div>
-
-      {/* Main Alignment Header Bar */}
       <div className="explore-header-main">
         <h2 className="explore-title-text">Explore Our Products</h2>
         <div className="explore-nav-arrows">
@@ -136,12 +152,13 @@ const ExploreProduct = () => {
         </div>
       </div>
 
-      {/* 2-Row Layout Display Track */}
       <div className="explore-grid-track" ref={gridContainerRef}>
-        {PRODUCTS.map((product) => (
-          <div className="explore-product-card" key={product.id}>
-            
-            {/* Top Product Image Wrapper */}
+        {PRODUCTS.map((product, index) => (
+          <div 
+            className={`explore-product-card ${isVisible ? 'animate-in' : ''}`} 
+            key={product.id}
+            style={{ '--card-index': index }}
+          >
             <div className="explore-media-box">
               {product.isNew && <span className="badge-new-pill">NEW</span>}
               
@@ -164,7 +181,6 @@ const ExploreProduct = () => {
               <button className="explore-add-to-cart-btn">Add To Cart</button>
             </div>
 
-            {/* Bottom Info Metadata Blocks */}
             <div className="explore-meta-box">
               <h3 className="explore-product-name">{product.name}</h3>
               
@@ -174,7 +190,6 @@ const ExploreProduct = () => {
                 <span className="explore-reviews-count">({product.reviews})</span>
               </div>
 
-              {/* Variable Multi-color Variant Circles */}
               {product.colors && (
                 <div className="explore-color-variants">
                   {product.colors.map((color, idx) => (
@@ -192,7 +207,6 @@ const ExploreProduct = () => {
         ))}
       </div>
 
-      {/* Primary Center Bottom Navigation Accent Anchor */}
       <div className="explore-footer-action">
         <button className="explore-view-all-btn">View All Products</button>
       </div>
