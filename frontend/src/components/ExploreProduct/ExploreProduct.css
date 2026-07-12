@@ -1,0 +1,312 @@
+.explore-products-section * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.explore-products-section {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 60px 48px;
+  background-color: #ffffff;
+}
+
+/* --- Section Top Identification Layout --- */
+.explore-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.red-vertical-badge {
+  width: 20px;
+  height: 40px;
+  background-color: #db4444;
+  border-radius: 4px;
+}
+
+.tag-label-text {
+  color: #db4444;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* --- Navigation Header Alignment --- */
+.explore-header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.explore-title-text {
+  font-size: 36px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: 0.5px;
+}
+
+.explore-nav-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.arrow-nav-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #000000;
+  transition: background-color 0.2s ease;
+}
+
+.arrow-nav-btn:hover {
+  background-color: #e2e2e2;
+}
+
+/* --- Multi-Row Grid Slider Layout Track --- */
+.explore-grid-track {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(max-content, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: 270px; /* Locks card structure dimensions cleanly */
+  gap: 40px 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 16px;
+  scrollbar-width: none;
+}
+
+.explore-grid-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Core Individual Card Frame Modules --- */
+.explore-product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.explore-media-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 270 / 250;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.explore-card-img {
+  max-width: 75%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+/* --- Hover Interactive "Add to Cart" Slide Drawer --- */
+.explore-add-to-cart-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transform: translateY(100%);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 3;
+}
+
+.explore-media-box:hover .explore-add-to-cart-btn {
+  transform: translateY(0);
+}
+
+/* --- Contextual Status Pill & Floating Action Nodes --- */
+.badge-new-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #00ff66;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.explore-action-stack {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
+}
+
+.explore-utility-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #000000;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.explore-utility-circle:hover {
+  background-color: #db4444;
+  color: #ffffff;
+}
+
+/* --- Bottom Card Content Metadata Typography --- */
+.explore-meta-box {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.explore-product-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.explore-stats-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.explore-price-tag {
+  color: #db4444;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.explore-stars-box {
+  display: flex;
+  gap: 2px;
+}
+
+.explore-reviews-count {
+  font-size: 14px;
+  color: #7d7d7d;
+  font-weight: 600;
+}
+
+/* --- Circular Variable Colors Variants --- */
+.explore-color-variants {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.color-dot-node {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--variant-color);
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.color-dot-node.active::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  border: 1.5px solid #000000;
+}
+
+/* --- Bottom Navigation Action Accent Footer --- */
+.explore-footer-action {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 60px;
+}
+
+.explore-view-all-btn {
+  background-color: #db4444;
+  color: #ffffff;
+  border: none;
+  padding: 16px 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.explore-view-all-btn:hover {
+  background-color: #c23333;
+}
+
+/* --- Responsive Layout Breakpoints --- */
+@media (max-width: 768px) {
+  .explore-products-section {
+    padding: 30px 24px;
+  }
+
+  .explore-title-text {
+    font-size: 26px;
+  }
+
+  .explore-grid-track {
+    grid-auto-columns: 210px;
+    gap: 24px 16px;
+  }
+
+  .explore-view-all-btn {
+    padding: 12px 32px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .explore-products-section {
+    padding: 20px 16px;
+  }
+
+  .explore-header-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .explore-nav-arrows {
+    align-self: flex-end;
+  }
+}

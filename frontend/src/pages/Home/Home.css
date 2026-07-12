@@ -1,0 +1,65 @@
+.hero-section {
+  max-width: 1170px;
+  margin: 40px auto;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+}
+
+/* Hero */
+.hero-banner {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ========================= */
+/* Tablet */
+/* ========================= */
+
+@media (max-width: 992px) {
+  .hero-section {
+    gap: 24px;
+    padding: 0 16px;
+  }
+
+  .sidebar {
+    width: 200px;
+  }
+}
+
+/* ========================= */
+/* Mobile */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column-reverse;
+    gap: 24px;
+    margin: 24px auto;
+    padding: 0 16px;
+  }
+
+  .sidebar,
+  .hero-banner {
+    width: 100%;
+  }
+}
+
+/* ========================= */
+/* Small Mobile */
+/* ========================= */
+
+@media (max-width: 480px) {
+  .hero-section {
+    gap: 16px;
+    padding: 0 12px;
+  }
+}

@@ -1,0 +1,138 @@
+
+.hero-banner {
+  background-color: #000000;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 16px 0; 
+}
+
+.hero-container {
+  background-color: #000000;
+  width: 100%;
+  max-width: 1280px; 
+  min-height: 400px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 0 40px 64px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+  z-index: 2;
+}
+
+.hero-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.brand-logo {
+  color: #ffffff;
+}
+
+.brand-name {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  width: max-content;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ffffff;
+  transition: opacity 0.2s ease;
+}
+
+.hero-link:hover {
+  opacity: 0.8;
+}
+
+.hero-image-box {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+
+.hero-pagination {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 3;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #7d7d7d;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dot.active {
+  background-color: #db4444; 
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+
+@media (max-width: 768px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    padding: 40px 24px 60px 24px;
+    text-align: center;
+    min-height: auto;
+  }
+
+  .hero-content {
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-image-box {
+    align-items: center;
+  }
+  
+  .hero-image {
+    max-height: 280px;
+  }
+} 

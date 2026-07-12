@@ -1,0 +1,234 @@
+/* Container Box & Typography Reset Scope */
+.footer-section-container * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.footer-section-container {
+  background-color: #000000;
+  color: #ffffff;
+  width: 100%;
+  padding-top: 80px;
+}
+
+/* --- Layout Main Distribution Matrix Grid --- */
+.footer-content-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 1fr 1fr 1.4fr;
+  gap: 40px 30px;
+  padding: 0 48px 60px 48px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Content Element Headers & Typography --- */
+.footer-brand-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.footer-section-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.footer-text-muted {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 16px;
+}
+
+.footer-address-text {
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: 0.9;
+  margin-bottom: 16px;
+}
+
+.footer-contact-item {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.footer-contact-item a {
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.footer-contact-item a:hover {
+  opacity: 1;
+}
+
+/* --- Left Column Custom Email Subscription Box --- */
+.footer-email-input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #ffffff;
+  border-radius: 4px;
+  padding: 10px 16px;
+  max-width: 240px;
+  background: transparent;
+}
+
+.footer-email-input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+}
+
+.footer-email-input::placeholder {
+  color: #7d7d7d;
+}
+
+.footer-email-submit {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Mid-Columns Links List Layout --- */
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-links-list a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.footer-links-list a:hover {
+  opacity: 1;
+}
+
+/* --- Right Column App Download Configurations --- */
+.footer-app-tagline {
+  font-size: 12px;
+  color: #7d7d7d;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.footer-download-matrix {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.qr-code-box {
+  width: 80px;
+  height: 80px;
+  background-color: #ffffff;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-code-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.app-store-badges-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.store-badge-link {
+  display: inline-block;
+  height: 34px;
+}
+
+.store-badge-img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+/* --- Social Icon Grid Settings --- */
+.footer-social-row {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.social-icon-link {
+  color: #ffffff;
+  transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.social-icon-link:hover {
+  opacity: 0.8;
+}
+
+/* --- Baseline Footer Strip Border Section --- */
+.footer-baseline-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 24px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-copyright-text {
+  font-size: 16px;
+  color: #222222;
+  /* Set explicit, slightly light gray text color to mimic design screenshot text */
+  opacity: 0.4; 
+}
+
+/* --- Smooth Responsive Interface Breakpoints --- */
+@media (max-width: 1024px) {
+  .footer-content-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    padding: 0 32px 60px 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 24px 48px 24px;
+  }
+
+  .footer-section-container {
+    padding-top: 60px;
+  }
+
+  .footer-email-input-wrapper {
+    max-width: 100%;
+  }
+}

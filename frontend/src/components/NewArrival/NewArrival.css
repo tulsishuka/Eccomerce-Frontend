@@ -1,0 +1,234 @@
+.best-selling-section * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.best-selling-section {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 60px 48px;
+  background-color: #ffffff;
+}
+
+/* --- Section Top Tags --- */
+.section-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.red-accent-badge {
+  width: 20px;
+  height: 40px;
+  background-color: #db4444;
+  border-radius: 4px;
+}
+
+.tag-label-text {
+  color: #db4444;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* --- Navigation Header Alignment --- */
+.section-header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.section-title-text {
+  font-size: 36px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: 0.5px;
+}
+
+.view-all-accent-btn {
+  background-color: #db4444;
+  color: #ffffff;
+  border: none;
+  padding: 16px 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.view-all-accent-btn:hover {
+  background-color: #c23333;
+}
+
+/* --- Smooth Responsive Flex Track Row --- */
+.products-slider-track {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Hide default bars on Firefox */
+}
+
+.products-slider-track::-webkit-scrollbar {
+  display: none; /* Hide default scrollbars on Chrome/Safari */
+}
+
+/* --- Flex Item Sizing Presets --- */
+.seller-product-card {
+  flex: 0 0 270px; /* Locked standard sizing matching structural desktop specs */
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.product-media-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 270 / 250;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.seller-card-img {
+  max-width: 75%;
+  max-height: 70%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.seller-product-card:hover .seller-card-img {
+  transform: scale(1.04);
+}
+
+/* --- Utility Floating Action Icons --- */
+.product-action-stack {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
+}
+
+.circle-utility-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #000000;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.circle-utility-btn:hover {
+  background-color: #db4444;
+  color: #ffffff;
+}
+
+/* --- Bottom Card Metadata Blocks --- */
+.seller-meta-box {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.seller-title-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.seller-price-row {
+  display: flex;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.seller-current-price {
+  color: #db4444;
+}
+
+.seller-old-price {
+  color: #7d7d7d;
+  text-decoration: line-through;
+}
+
+.seller-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stars-flex-box {
+  display: flex;
+  gap: 4px;
+}
+
+.seller-review-count {
+  font-size: 14px;
+  color: #7d7d7d;
+  font-weight: 600;
+}
+
+/* --- Responsive Layout Breaks --- */
+@media (max-width: 768px) {
+  .best-selling-section {
+    padding: 30px 24px;
+  }
+
+  .section-title-text {
+    font-size: 26px;
+  }
+
+  .view-all-accent-btn {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+
+  .products-slider-track {
+    gap: 16px;
+  }
+
+  .seller-product-card {
+    flex: 0 0 210px;
+  }
+}
+
+@media (max-width: 480px) {
+  .best-selling-section {
+    padding: 20px 16px;
+  }
+
+  .section-header-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .view-all-accent-btn {
+    align-self: flex-end;
+  }
+}
