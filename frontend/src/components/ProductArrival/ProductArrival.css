@@ -41,6 +41,7 @@
   letter-spacing: 0.5px;
 }
 
+/* Bento Grid Structural Framework */
 .bento-grid-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -53,9 +54,8 @@
   background-color: #0d0d0d;
   border-radius: 4px;
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-
+  
+  /* Initial state for IntersectionObserver animation */
   opacity: 0;
   transform: translateY(40px);
   visibility: hidden;
@@ -69,11 +69,14 @@
   transition-delay: calc(var(--item-index) * 120ms);
 }
 
+/* Absolute content layer handling to sit above graphics cleanly */
 .tile-content-overlay {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%; /* Restricts text to the left half so it never overlaps the image */
   z-index: 5;
   padding: 32px;
-  max-width: 320px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -108,6 +111,7 @@
   border-color: #ffffff;
 }
 
+/* Tile 1: PlayStation 5 */
 .tile-large-ps5 {
   min-height: 600px;
 }
@@ -115,33 +119,36 @@
 .img-ps5 {
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   width: 100%;
-  height: 90%;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover; /* Keeps image correctly mapped to the background fill area */
 }
 
+/* Column Configuration Right Side */
 .bento-column-group {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
+/* Tile 2: Women's Collections */
 .tile-wide-women {
-  min-height: 285px;
-  justify-content: flex-start;
+  height: 285px;
+  position: relative;
+  background-color: #0d0d0d;
 }
 
 .img-women {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: auto;
-  height: 100%;
-  object-fit: contain;
+  top: 0;
+  right: 0;         /* Pins the image to the right side */
+  width: auto;      /* lets it scale naturally */
+  height: 100%;     /* Fills the full height of the tile */
+  object-fit: contain; 
+  z-index: 1;
 }
-
+/* Row Configuration Bottom Right */
 .bento-split-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -149,35 +156,35 @@
   flex: 1;
 }
 
+/* Tiles 3 & 4: Speakers & Perfume */
 .tile-square-item {
-  min-height: 285px;
-  justify-content: center;
-  align-items: flex-end;
+  height: 285px;
 }
 
+/* Radial Glow to match UI asset backing */
 .tile-radial-glow {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0) 80%);
   pointer-events: none;
   z-index: 1;
 }
 
 .img-speaker, .img-perfume {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 70%;
-  max-height: 70%;
-  object-fit: contain;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: 2;
 }
 
+/* Features Footer Elements */
 .features-footer-row {
   display: flex;
   justify-content: space-around;
@@ -240,6 +247,7 @@
   opacity: 0.7;
 }
 
+/* Responsive Layout Configurations */
 @media (max-width: 1024px) {
   .arrival-section-container {
     padding: 40px 24px;
