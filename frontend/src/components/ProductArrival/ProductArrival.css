@@ -1,4 +1,3 @@
-/* Container Box Reset Layout Scope */
 .arrival-section-container * {
   box-sizing: border-box;
   margin: 0;
@@ -14,7 +13,6 @@
   background-color: #ffffff;
 }
 
-/* --- Section Top Layout Identifiers --- */
 .arrival-tag-row {
   display: flex;
   align-items: center;
@@ -43,7 +41,6 @@
   letter-spacing: 0.5px;
 }
 
-/* --- Core Bento Grid Infrastructure Assembly --- */
 .bento-grid-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -51,7 +48,6 @@
   width: 100%;
 }
 
-/* Abstract Standard Tile Node Properties */
 .bento-tile {
   position: relative;
   background-color: #0d0d0d;
@@ -59,9 +55,20 @@
   overflow: hidden;
   display: flex;
   align-items: flex-end;
+
+  opacity: 0;
+  transform: translateY(40px);
+  visibility: hidden;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, visibility 0.6s;
 }
 
-/* Overlaid Text Panels */
+.bento-tile.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition-delay: calc(var(--item-index) * 120ms);
+}
+
 .tile-content-overlay {
   position: relative;
   z-index: 5;
@@ -101,7 +108,6 @@
   border-color: #ffffff;
 }
 
-/* --- Left Side Tile Specifics --- */
 .tile-large-ps5 {
   min-height: 600px;
 }
@@ -116,14 +122,12 @@
   object-fit: contain;
 }
 
-/* --- Right Side Multi-Tier Track Sub-group --- */
 .bento-column-group {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-/* Top Horizontal Banner */
 .tile-wide-women {
   min-height: 285px;
   justify-content: flex-start;
@@ -138,7 +142,6 @@
   object-fit: contain;
 }
 
-/* Bottom Dual Box Splits */
 .bento-split-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -152,7 +155,6 @@
   align-items: flex-end;
 }
 
-/* Internal Custom Center-Glow Shading behind specific objects */
 .tile-radial-glow {
   position: absolute;
   top: 50%;
@@ -176,7 +178,6 @@
   z-index: 2;
 }
 
-/* --- Bottom Features Accent Panels Row --- */
 .features-footer-row {
   display: flex;
   justify-content: space-around;
@@ -191,14 +192,23 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  visibility: hidden;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, visibility 0.5s;
 }
 
-/* Outer Concentric Circles Settings */
+.feature-card-block.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition-delay: calc(var(--item-index) * 120ms);
+}
+
 .icon-outer-ring {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: #c1c1c1;
   background-color: rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
@@ -230,7 +240,6 @@
   opacity: 0.7;
 }
 
-/* --- Layout Responsiveness Breakpoint Framework --- */
 @media (max-width: 1024px) {
   .arrival-section-container {
     padding: 40px 24px;
